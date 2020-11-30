@@ -29,8 +29,22 @@ set hlsearch
 highlight TrailingWhitespace ctermbg=darkred guibg=#382424
 match TrailingWhitespace /\s\+$/
 
-"Highlight all lines over 80 chars
-highlight OverLength ctermbg=red guibg=#525252
-2match OverLength /\%>80v.\+/
-
 set colorcolumn=80
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+let g:tex_flavor='latex'
+let g:vimtex_view_general_viewer = 'sumatraPDF'
+let g:vimtex_view_general_options = '-reuse-instance @pdf'
+let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+let g:vimtex_compiler_enabled=0
+
+autocmd BufWritePost *.tex !pdflatex <afile>
+
+hi clear Conceal
